@@ -1,12 +1,12 @@
-# {{Reading Timer}} Method Design Recipe
+# {{grammar_checker}} Method Design Recipe
 
 ## 1. Describe the Problem
 
 _Put or write the user story here. Add any clarifying notes you might have._
 
 As a user
-So that I can manage my time
-I want to see an estimate of reading time for a text, assuming that I can read 200 words a minute.
+So that I can improve my grammar
+I want to verify that a text starts with a capital letter and ends with a suitable sentence-ending punctuation mark.
 
 ## 2. Design the Method Signature
 
@@ -15,9 +15,9 @@ I want to see an estimate of reading time for a text, assuming that I can read 2
 
 # `reading_time` outputs an estimate of reading time in minutes
 
-reading_time = reading_timer(text)
+grammar_check = grammar_checker(text)
 text: a string
-reading_timer: outputs an estimate of minutes as integer
+grammar_check: outputs boolean (true or false)
 
 # The method doesn't print anything or have any other side-effects
 ```
@@ -29,12 +29,14 @@ _Make a list of examples of what the method will take and return._
 ```ruby
 # EXAMPLE
 
-reading_time("") => 0
-reading_time(200_words) => 1
-reading_time(400_words) => 2
-reading_time(299_words) => 1
-reading_time(300_words) => 2
-reading_time(nil) => fail
+grammar_checker("Hello.") => true
+grammar_checker("hello.") => false
+grammar_checker("Hello") => false
+grammar_checker("Hello?") => true
+grammar_checker("Hello!") => true
+grammar_checker("") => "This text is empty."
+grammar_checker(nil) => "This text is empty."
+
 
 ```
 
