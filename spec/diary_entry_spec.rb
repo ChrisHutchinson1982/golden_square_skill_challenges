@@ -17,6 +17,10 @@ RSpec.describe DiaryEntry do
     expect(diary_entry.count_words). to eq 4
   end
 
-  
+  it "adds and returns estimated wpm user can read" do
+    diary_entry = DiaryEntry.new("Today", "I am feeling great!")
+    expect(diary_entry.reading_time(1)).to eq 4
+  end
+
 
 end
