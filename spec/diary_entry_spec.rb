@@ -22,5 +22,20 @@ RSpec.describe DiaryEntry do
     expect(diary_entry.reading_time(1)).to eq 4
   end
 
+  it "add and returns reading_chunk from contents that user can read in a minute" do
+    diary_entry = DiaryEntry.new("Today", "I am feeling great but think sounds tricky!")
+    expect(diary_entry.reading_chunk(1, 1)).to eq "I"
+  end
+
+  it "add and returns "" if wpm or minutes is 0" do
+    diary_entry = DiaryEntry.new("Today", "I am feeling great but think sounds tricky!")
+    expect(diary_entry.reading_chunk(0, 0)).to eq ""
+  end
+
+  it "add and returns second reading_chunk from contents that user can read in a minute" do
+    diary_entry = DiaryEntry.new("Today", "I am feeling great but think sounds tricky!")
+    diary_entry.reading_chunk(1,1)
+    expect(diary_entry.reading_chunk(2,1)).to eq "am feeling"
+  end
 
 end
