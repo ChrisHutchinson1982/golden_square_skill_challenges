@@ -10,11 +10,8 @@ class LetterCounter
     @text.chars.each do |char|
       next unless is_letter?(char)
       # counter[char] = (counter[char] || 1) + 1
-      if counter.has_key?(char) == false
-        counter[char] = counter[char]
-      else 
-        counter[char] = counter[char] + 1
-      end
+      counter[char] = (counter.has_key?(char) == false ? 1 : (counter[char] + 1))
+     
       if counter[char] > most_common_count
         most_common = char
         most_common_count = counter[char]
