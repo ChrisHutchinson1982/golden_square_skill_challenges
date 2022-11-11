@@ -1,4 +1,4 @@
-require 'reading_time'
+require '03_design_a_single_method/reading_time'
 
 RSpec.describe "give an estimate of someone's reading time in minutes" do
 

@@ -2,7 +2,7 @@
 # that takes a string as an argument 
 # and returns the number of words in that string.
 
-require 'count_words'
+require '02_test_drive_a_single_method/count_words'
 
 RSpec.describe "count_words method" do
   context "given a empty string" do

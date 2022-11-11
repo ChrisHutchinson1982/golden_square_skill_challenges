@@ -1,4 +1,4 @@
-require "make_snippet"
+require "02_test_drive_a_single_method/make_snippet"
 
 RSpec.describe "make_snippet method" do
   it "Return string for one word input" do

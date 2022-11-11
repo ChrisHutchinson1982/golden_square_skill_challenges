@@ -1,4 +1,4 @@
-require 'music_tracker'
+require '06_design_a_class/music_tracker'
 
 RSpec.describe MusicTracker do
 

@@ -1,4 +1,4 @@
-require 'string_checker'
+require '03_design_a_single_method/string_checker'
 
 # As a user
 # So that I can keep track of my tasks

@@ -1,4 +1,4 @@
-require "grammar_stats"
+require "05_test_drive_a_class/grammar_stats"
 
 RSpec.describe GrammarStats do
 

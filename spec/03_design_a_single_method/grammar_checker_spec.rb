@@ -1,4 +1,4 @@
-require 'grammar_checker'
+require '03_design_a_single_method/grammar_checker'
 
 # As a user
 # So that I can improve my grammar

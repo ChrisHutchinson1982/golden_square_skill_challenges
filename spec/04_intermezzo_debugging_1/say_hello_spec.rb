@@ -1,4 +1,4 @@
-require 'say_hello'
+require '04_intermezzo_debugging_1/say_hello'
 
 RSpec.describe "say_hello method" do
   it "returns 'hello kay' when name is 'Kay'" do 

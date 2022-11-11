@@ -1,4 +1,4 @@
-require 'diary_entry'
+require '05_test_drive_a_class/diary_entry'
 
 RSpec.describe DiaryEntry do
   
