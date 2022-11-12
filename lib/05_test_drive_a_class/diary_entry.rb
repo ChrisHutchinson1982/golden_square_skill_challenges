@@ -45,7 +45,9 @@ class DiaryEntry
     number_of_words = (wpm * minutes)
 
     output = @contents.split(" ")[@starting_index...(@starting_index + number_of_words)].join(" ")
-    @starting_index = number_of_words
+    
+    @starting_index += number_of_words
+    @starting_index = 0 if @starting_index > @contents.split(" ").count
 
     return output
   end

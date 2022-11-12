@@ -38,4 +38,19 @@ RSpec.describe DiaryEntry do
     expect(diary_entry.reading_chunk(2,1)).to eq "am feeling"
   end
 
+  it "dd and returns third reading_chunk from contents that user can read in a minute" do
+    diary_entry = DiaryEntry.new("Today", "I am feeling great but think sounds tricky!")
+    diary_entry.reading_chunk(4,1)
+    diary_entry.reading_chunk(3,1)
+    expect(diary_entry.reading_chunk(4,1)).to eq "tricky!"
+  end
+
+  it "returns reading_chunk to start if contents fully read" do
+    diary_entry = DiaryEntry.new("Today", "I am feeling great but think sounds tricky!")
+    diary_entry.reading_chunk(4,1)
+    diary_entry.reading_chunk(3,1)
+    diary_entry.reading_chunk(4,1)
+    expect(diary_entry.reading_chunk(1,1)).to eq "I"
+  end
+
 end
