@@ -39,37 +39,37 @@ _Make a list of examples of how the class will behave in different situations._
 # EXAMPLE
 
 # 1 returns empty array
-todo_tracker = TodoTracker
+todo_tracker = TodoTracker.new
 todo_tracker.todo_list # => []
 
 # 2 add and returns one todo
-todo_tracker = TodoTracker
+todo_tracker = TodoTracker.new
 todo_tracker.add("Shopping")
 todo_tracker.todo_list # => ["Shopping"]
 
 # 3 add and returns mutiple todo's
-todo_tracker = TodoTracker
+todo_tracker = TodoTracker.new
 todo_tracker.add("Shopping")
 todo_tracker.add("Walk the dog")
 todo_tracker.todo_list # => ["Shopping", "Walk the dog"]
 
 # 4 throws an exception if todo is already set
-todo_tracker = TodoTracker
+todo_tracker = TodoTracker.new
 todo_tracker.add("Shopping")
 todo_tracker.add("Shopping") # => "Error, Todo already in Todo list"
 
 # 5 throws an exception if no todo is set
-todo_tracker = TodoTracker
+todo_tracker = TodoTracker.new
 todo_tracker.complete("Shopping") # => "Error, no matching Todo in Todo list"
 
 # 6 removes todo from list
-todo_tracker = TodoTracker
+todo_tracker = TodoTracker.new
 todo_tracker.add("Walk the dog")
 todo_tracker.complete("Walk the dog")
 todo_tracker.todo_list # => []
 
 # 6 removes todo from list with mutiple todo's
-todo_tracker = TodoTracker
+todo_tracker = TodoTracker.new
 todo_tracker.add("Shopping")
 todo_tracker.add("Walk the dog")
 todo_tracker.complete("Walk the dog")
