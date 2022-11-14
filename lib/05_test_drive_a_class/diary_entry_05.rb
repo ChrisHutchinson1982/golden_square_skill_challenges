@@ -1,4 +1,4 @@
-class DiaryEntry
+class DiaryEntry05
   def initialize(title, contents) # title, contents are strings
     @title = title
     @contents = contents
