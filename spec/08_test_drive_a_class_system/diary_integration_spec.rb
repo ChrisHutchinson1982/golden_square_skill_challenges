@@ -41,5 +41,4 @@ RSpec.describe "Diary Integration" do
   end
 
 
-
 end
