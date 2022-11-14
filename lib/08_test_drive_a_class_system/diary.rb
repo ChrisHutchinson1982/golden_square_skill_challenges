@@ -13,24 +13,39 @@ class Diary
   end
 
   def count_words
-    # Returns the number of words in all diary entries
-    # HINT: This method should make use of the `count_words` method on DiaryEntry.
+    word_count = 0
+    @diary.each do |entry|
+      word_count += entry.count_words
+    end
+
+    return word_count
+
   end
 
-  def reading_time(wpm) # wpm is an integer representing
-                        # the number of words the user can read per minute
-    # Returns an integer representing an estimate of the reading time in minutes
-    # if the user were to read all entries in the diary.
+  def reading_time(wpm) 
+    diary_reading_time = 0
+    @diary.each do |entry|
+      diary_reading_time += entry.reading_time(wpm)
+    end
+
+    return diary_reading_time    
   end
 
   def find_best_entry_for_reading_time(wpm, minutes)
-        # `wpm` is an integer representing the number of words the user can read
-        # per minute.
-        # `minutes` is an integer representing the number of minutes the user
-        # has to read.
-    # Returns an instance of diary entry representing the entry that is closest 
-    # to, but not over, the length that the user could read in the minutes they
-    # have available given their reading speed.
+
+    best_entry = @diary[0]
+    max_number_of_words = wpm * minutes
+    @diary.each do |entry|
+      valid_entry = entry.count_words <= max_number_of_words
+      better_entry = entry.count_words > best_entry.count_words
+      if valid_entry && better_entry
+          best_entry = entry
+      end
+    end
+
+    fail "All entries too long" if best_entry.count_words > max_number_of_words
+    return best_entry
+
   end
 
 end
