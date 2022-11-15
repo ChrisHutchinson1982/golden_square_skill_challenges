@@ -156,52 +156,52 @@ combinations that reflect the ways in which the system will be used._
 # diary.all_todo # => [task_1, task_2]
 
 # Returns best entry when one valid entry
-diary = DiaryTodoTracker.new
-entry_1 = DiaryEntry.new("entry_1", "One")
-entry_2 = DiaryEntry.new("entry_2", "One Two")
-diary.add_entry(entry_1)
-diary.add_entry(entry_2)
-diary.find_best_entry(1, 1) # => entry_1
+# diary = DiaryTodoTracker.new
+# entry_1 = DiaryEntry.new("entry_1", "One")
+# entry_2 = DiaryEntry.new("entry_2", "One Two")
+# diary.add_entry(entry_1)
+# diary.add_entry(entry_2)
+# diary.find_best_entry(1, 1) # => entry_1
 
 # Returns best entry when more than one valid entry
-diary = DiaryTodoTracker.new
-entry_1 = DiaryEntry.new("entry_1", "One")
-entry_2 = DiaryEntry.new("entry_2", "One Two")
-entry_3 = DiaryEntry.new("entry_3", "One Two Three")
-diary.add_entry(entry_1)
-diary.add_entry(entry_2)
-diary.add_entry(entry_3)
-diary.find_best_entry(2, 1) # => entry_2
+# diary = DiaryTodoTracker.new
+# entry_1 = DiaryEntry.new("entry_1", "One")
+# entry_2 = DiaryEntry.new("entry_2", "One Two")
+# entry_3 = DiaryEntry.new("entry_3", "One Two Three")
+# diary.add_entry(entry_1)
+# diary.add_entry(entry_2)
+# diary.add_entry(entry_3)
+# diary.find_best_entry(2, 1) # => entry_2
 
 # Returns nil when no valid entry
-diary = DiaryTodoTracker.new
-entry_1 = DiaryEntry.new("entry_1", "One Two Three Four")
-entry_2 = DiaryEntry.new("entry_2", "One Two Three Four Five")
-entry_3 = DiaryEntry.new("entry_3", "One Two Three Four Five Six")
-diary.add_entry(entry_1)
-diary.add_entry(entry_2)
-diary.add_entry(entry_3)
-diary.find_best_entry(2, 1) # => nil
+# diary = DiaryTodoTracker.new
+# entry_1 = DiaryEntry.new("entry_1", "One Two Three Four")
+# entry_2 = DiaryEntry.new("entry_2", "One Two Three Four Five")
+# entry_3 = DiaryEntry.new("entry_3", "One Two Three Four Five Six")
+# diary.add_entry(entry_1)
+# diary.add_entry(entry_2)
+# diary.add_entry(entry_3)
+# diary.find_best_entry(2, 1) # => nil
 
 # Returns error is wpm is 0
-diary = DiaryTodoTracker.new
-entry_1 = DiaryEntry.new("entry_1", "One Two Three Four")
-entry_2 = DiaryEntry.new("entry_2", "One Two Three Four Five")
-entry_3 = DiaryEntry.new("entry_3", "One Two Three Four Five Six")
-diary.add_entry(entry_1)
-diary.add_entry(entry_2)
-diary.add_entry(entry_3)
-diary.find_best_entry(0, 1) # => "Wpm or Mins cannot be 0"
+# diary = DiaryTodoTracker.new
+# entry_1 = DiaryEntry.new("entry_1", "One Two Three Four")
+# entry_2 = DiaryEntry.new("entry_2", "One Two Three Four Five")
+# entry_3 = DiaryEntry.new("entry_3", "One Two Three Four Five Six")
+# diary.add_entry(entry_1)
+# diary.add_entry(entry_2)
+# diary.add_entry(entry_3)
+# diary.find_best_entry(0, 1) # => "Wpm or Mins cannot be 0"
 
-# Returns error is mins is 0
-diary = DiaryTodoTracker.new
-entry_1 = DiaryEntry.new("entry_1", "One Two Three Four")
-entry_2 = DiaryEntry.new("entry_2", "One Two Three Four Five")
-entry_3 = DiaryEntry.new("entry_3", "One Two Three Four Five Six")
-diary.add_entry(entry_1)
-diary.add_entry(entry_2)
-diary.add_entry(entry_3)
-diary.find_best_entry(1, 0) # => "Wpm or Mins cannot be 0"
+# # Returns error is mins is 0
+# diary = DiaryTodoTracker.new
+# entry_1 = DiaryEntry.new("entry_1", "One Two Three Four")
+# entry_2 = DiaryEntry.new("entry_2", "One Two Three Four Five")
+# entry_3 = DiaryEntry.new("entry_3", "One Two Three Four Five Six")
+# diary.add_entry(entry_1)
+# diary.add_entry(entry_2)
+# diary.add_entry(entry_3)
+# diary.find_best_entry(1, 0) # => "Wpm or Mins cannot be 0"
 
 # Returns phone number list when one valid entry where phone number is full contents string
 diary = DiaryTodoTracker.new
@@ -286,21 +286,21 @@ a more granular level of detail._
 
 # DiaryEntry unit tests
 
-# Returns title
-entry_1 = DiaryEntry.new("entry_1", "One")
-entry.title => "entry_1"
+# # Returns title
+# entry_1 = DiaryEntry.new("entry_1", "One")
+# entry_1.title => "entry_1"
 
-# Returns contents
-entry_1 = DiaryEntry.new("entry_1", "One")
-entry.title => "One"
+# # Returns contents
+# entry_1 = DiaryEntry.new("entry_1", "One")
+# entry_1.title => "One"
 
-# Returns word count of contents as integer
-entry_1 = DiaryEntry.new("entry_1", "One Two Three Four Five")
-entry.count_words => 5
+# # Returns word count of contents as integer
+# entry_1 = DiaryEntry.new("entry_1", "One Two Three Four Five")
+# entry_1.count_words => 5
 
-# Returns 0 if contents is empty
-entry_1 = DiaryEntry.new("entry_1", "")
-entry.count_words => 0
+# # Returns 0 if contents is empty
+# entry_1 = DiaryEntry.new("entry_1", "")
+# entry_1.count_words => 0
 
 # Todo unit tests
 
