@@ -191,7 +191,7 @@ combinations that reflect the ways in which the system will be used._
 # diary.add_entry(entry_1)
 # diary.add_entry(entry_2)
 # diary.add_entry(entry_3)
-# diary.find_best_entry(0, 1) # => "Wpm or Mins cannot be 0"
+# diary.find_best_entry(0, 1) # => "Invalid entry due to missing information"
 
 # # Returns error is mins is 0
 # diary = DiaryTodoTracker.new
@@ -201,7 +201,7 @@ combinations that reflect the ways in which the system will be used._
 # diary.add_entry(entry_1)
 # diary.add_entry(entry_2)
 # diary.add_entry(entry_3)
-# diary.find_best_entry(1, 0) # => "Wpm or Mins cannot be 0"
+# diary.find_best_entry(1, 0) # => "Invalid entry due to missing information"
 
 # Returns phone number list when one valid entry where phone number is full contents string
 diary = DiaryTodoTracker.new
@@ -219,6 +219,14 @@ diary.add_entry(entry_1)
 diary.add_entry(entry_2)
 diary.list_phone_numbers # => ["01234567890", "01234567891"]
 
+# Returns unique phone number list when two valid entries are the same phone number
+diary = DiaryTodoTracker.new
+entry_1 = DiaryEntry.new("entry_1", "01234567890")
+entry_2 = DiaryEntry.new("entry_2", "01234567890")
+diary.add_entry(entry_1)
+diary.add_entry(entry_2)
+diary.list_phone_numbers # => ["01234567890"]
+
 # Returns phone number list when one valid entry where phone number is part of contents string
 diary = DiaryTodoTracker.new
 entry_1 = DiaryEntry.new("entry_1", "Your number is 01234567890")
@@ -226,6 +234,12 @@ entry_2 = DiaryEntry.new("entry_2", "One Two")
 diary.add_entry(entry_1)
 diary.add_entry(entry_2)
 diary.list_phone_numbers # => ["01234567890"]
+
+# Returns empty phone number when phone only has 10 numbers
+diary = DiaryTodoTracker.new
+entry_1 = DiaryEntry.new("entry_1", "Your number is 1234567890")
+diary.add_entry(entry_1)
+diary.list_phone_numbers # => []
 
 # Returns phone number list when two valid entries with one full string and one part string
 diary = DiaryTodoTracker.new
@@ -257,6 +271,8 @@ diary.add_entry(entry_2)
 diary.add_entry(entry_3)
 diary.list_phone_numbers # => []
 
+
+
 ```
 
 ## 4. Create Examples as Unit Tests
@@ -276,9 +292,9 @@ a more granular level of detail._
 # diary = DiaryTodoTracker.new
 # diary.all_todo # => []
 
-# # Returns nil for best entry when no diary entries
+# # Returns error for best entry when no diary entries
 # diary = DiaryTodoTracker.new
-# diary.find_best_entry(1, 1) # => nil
+# diary.find_best_entry(1, 1) # => "Invalid entry due to missing information"
 
 # # Returns empty phone number list when no diary entries
 # diary = DiaryTodoTracker.new
@@ -305,8 +321,8 @@ a more granular level of detail._
 # Todo unit tests
 
 # Constructs a task
-task = Todo.new("Task 1")
-task.task_details # => "Task 1"
+# task = Todo.new("Task 1")
+# task.task_details # => "Task 1"
 
 ```
 

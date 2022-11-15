@@ -81,6 +81,84 @@ RSpec.describe "diary_todo_tracker_integration" do
 
   end
 
+  describe "list_phone_numbers method" do
 
+    it "returns phone number list when one valid entry where phone number is full contents string" do 
+      diary = DiaryTodoTracker.new
+      entry_1 = DiaryEntry.new("entry_1", "01234567890")
+      entry_2 = DiaryEntry.new("entry_2", "One Two")
+      diary.add_entry(entry_1)
+      diary.add_entry(entry_2)
+      expect(diary.list_phone_numbers).to eq ["01234567890"]
+    end
+
+    xit "returns phone number list when two valid entries where phone number is full contents string" do
+      diary = DiaryTodoTracker.new
+      entry_1 = DiaryEntry.new("entry_1", "01234567890")
+      entry_2 = DiaryEntry.new("entry_2", "01234567891")
+      diary.add_entry(entry_1)
+      diary.add_entry(entry_2)
+      expect(diary.list_phone_numbers).to eq ["01234567890", "01234567891"]
+    end 
+
+    xit "returns unique phone number list when two valid entries are the same phone number" do
+      diary = DiaryTodoTracker.new
+      entry_1 = DiaryEntry.new("entry_1", "01234567890")
+      entry_2 = DiaryEntry.new("entry_2", "01234567890")
+      diary.add_entry(entry_1)
+      diary.add_entry(entry_2)
+      expect(diary.list_phone_numbers).to eq ["01234567890"]
+    end
+
+    xit "returns phone number list when one valid entry where phone number is part of contents string" do
+      diary = DiaryTodoTracker.new
+      entry_1 = DiaryEntry.new("entry_1", "Your number is 01234567890")
+      entry_2 = DiaryEntry.new("entry_2", "One Two")
+      diary.add_entry(entry_1)
+      diary.add_entry(entry_2)
+      expect(diary.list_phone_numbers).to eq ["01234567890"]
+    end 
+
+    xit "returns empty phone number when phone only has 10 numbers" do
+      diary = DiaryTodoTracker.new
+      entry_1 = DiaryEntry.new("entry_1", "Your number is 1234567890")
+      diary.add_entry(entry_1)
+      expect(diary.list_phone_numbers).to eq []
+    end
+
+    xit "returns phone number list when two valid entries with one full string and one part string" do
+      diary = DiaryTodoTracker.new
+      entry_1 = DiaryEntry.new("entry_1", "01234567890")
+      entry_2 = DiaryEntry.new("entry_2", "One Two")
+      entry_3 = DiaryEntry.new("entry_1", "Your number is 01234567891")
+      diary.add_entry(entry_1)
+      diary.add_entry(entry_2)
+      diary.add_entry(entry_3)
+      expect(diary.list_phone_numbers).to eq ["01234567890", "01234567891"]
+    end
+
+    xit "returns phone number list when two valid numbers in contents string" do
+      diary = DiaryTodoTracker.new
+      entry_1 = DiaryEntry.new("entry_1", "Call 01234567890 or 01234567892")
+      entry_2 = DiaryEntry.new("entry_2", "One Two")
+      entry_3 = DiaryEntry.new("entry_1", "Your number is 01234567891")
+      diary.add_entry(entry_1)
+      diary.add_entry(entry_2)
+      diary.add_entry(entry_3)
+      expect(diary.list_phone_numbers).to eq ["01234567890", "01234567892", "01234567891"]
+    end
+
+    xit "returns empty list when no valid numbers" do
+      diary = DiaryTodoTracker.new
+      entry_1 = DiaryEntry.new("entry_1", "One Two Three Four")
+      entry_2 = DiaryEntry.new("entry_2", "One Two Three Four Five")
+      entry_3 = DiaryEntry.new("entry_3", "One Two Three Four Five Six")
+      diary.add_entry(entry_1)
+      diary.add_entry(entry_2)
+      diary.add_entry(entry_3)
+      diary.list_phone_numbers.to eq []
+    end
+
+  end 
 
 end
