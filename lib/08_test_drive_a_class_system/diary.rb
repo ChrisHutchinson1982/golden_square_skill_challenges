@@ -23,12 +23,9 @@ class Diary
   end
 
   def reading_time(wpm) 
-    diary_reading_time = 0
-    @diary.each do |entry|
-      diary_reading_time += entry.reading_time(wpm)
-    end
-
-    return diary_reading_time    
+    fail "Error, wpm cannot be 0" if wpm == 0
+    words_per_min = count_words.to_f / wpm
+    words_per_min.ceil  
   end
 
   def find_best_entry_for_reading_time(wpm, minutes)

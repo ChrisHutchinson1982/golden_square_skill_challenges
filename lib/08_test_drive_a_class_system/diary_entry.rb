@@ -19,7 +19,7 @@ class DiaryEntry
 
   def reading_time(wpm)
     fail "Error, wpm cannot be 0" if wpm == 0
-    words_per_min = @contents.split(" ").count.to_f / wpm
+    words_per_min = count_words.to_f / wpm
     words_per_min.ceil
   end
 
