@@ -5,14 +5,12 @@ class DiaryTodoTracker
 
   end
 
-  def add_entry(diary_entry) # diary_entry is an instance of DiaryEntry
-    # Track gets added to the diary library
-    # Returns nothing
+  def add_entry(diary_entry) 
+    @diary_list << diary_entry
   end
 
-  def add_task(task) # task is an instance of TodoEntry
-    # Track gets added to the todo library
-    # Returns nothing
+  def add_task(task)
+    @todo_list << task
   end
 
   def all_diary

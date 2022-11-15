@@ -103,7 +103,7 @@ class DiaryTodoTracker
 
 end
 
-class DiaryEntry(tite, contents)
+class DiaryEntry
   def initialize(title, contents) # title and contents are both strings
   end
 
@@ -121,7 +121,7 @@ class DiaryEntry(tite, contents)
 
 end
 
-class Todo(task)
+class Todo
   def initialize(task) # task is a strings
   end
 
@@ -148,12 +148,12 @@ combinations that reflect the ways in which the system will be used._
 # diary.all_diary # => [entry_1, entry_2]
 
 # Gets all todo entries
-diary = DiaryTodoTracker.new
-task_1 = Todo.new("task_1")
-task_2 = Todo.new("task_2")
-diary.add_task(task_1)
-diary.add_task(task_2)
-diary.all_todo # => [task_1, task_2]
+# diary = DiaryTodoTracker.new
+# task_1 = Todo.new("task_1")
+# task_2 = Todo.new("task_2")
+# diary.add_task(task_1)
+# diary.add_task(task_2)
+# diary.all_todo # => [task_1, task_2]
 
 # Returns best entry when one valid entry
 diary = DiaryTodoTracker.new
