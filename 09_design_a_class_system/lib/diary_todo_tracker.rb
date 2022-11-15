@@ -22,13 +22,20 @@ class DiaryTodoTracker
   end
   
   def find_best_entry(wpm, mins)
-    # `wpm` is an integer representing the number of words the user can read
-        # per minute.
-        # `minutes` is an integer representing the number of minutes the user
-        # has to read.
-    # Returns an instance of diary entry representing the entry that is closest 
-    # to, but not over, the length that the user could read in the minutes they
-    # have available given their reading speed.
+    
+    fail "Invalid entry due to missing information" if wpm == 0 || mins == 0 || @diary_list == []
+    best_entry = @diary_list[0]
+    max_number_of_words = wpm * mins
+    @diary_list.each do |entry|
+      valid_entry = entry.count_words <= max_number_of_words
+      better_entry = entry.count_words > best_entry.count_words
+      if valid_entry && better_entry
+          best_entry = entry
+      end
+    end
+
+    best_entry.count_words > max_number_of_words ? nil : best_entry
+
   end
 
   def list_phone_numbers 
