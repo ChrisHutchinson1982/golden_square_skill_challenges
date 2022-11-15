@@ -121,7 +121,7 @@ class DiaryEntry(tite, contents)
 
 end
 
-class Todo(task)
+class TodoEntry(task)
   def initialize(task) # task is a strings
   end
 
