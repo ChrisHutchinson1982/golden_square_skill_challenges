@@ -1,6 +1,8 @@
 class DiaryTodoTracker
   def initialize
-    # ...
+    @diary_list = []
+    @todo_list = []
+
   end
 
   def add_entry(diary_entry) # diary_entry is an instance of DiaryEntry
@@ -14,11 +16,11 @@ class DiaryTodoTracker
   end
 
   def all_diary
-    # Returns a list of diary_entry objects
+    @diary_list
   end
 
   def all_todo
-    # Returns a list of task objects
+    @todo_list
   end
   
   def find_best_entry(wpm, mins)

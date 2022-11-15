@@ -121,7 +121,7 @@ class DiaryEntry(tite, contents)
 
 end
 
-class TodoEntry(task)
+class Todo(task)
   def initialize(task) # task is a strings
   end
 
@@ -140,12 +140,12 @@ combinations that reflect the ways in which the system will be used._
 ```ruby
 
 # Gets all diary entries
-diary = DiaryTodoTracker.new
-entry_1 = DiaryEntry.new("entry_1", "One")
-entry_2 = DiaryEntry.new("entry_2", "One Two")
-diary.add_entry(entry_1)
-diary.add_entry(entry_2)
-diary.all_diary # => [entry_1, entry_2]
+# diary = DiaryTodoTracker.new
+# entry_1 = DiaryEntry.new("entry_1", "One")
+# entry_2 = DiaryEntry.new("entry_2", "One Two")
+# diary.add_entry(entry_1)
+# diary.add_entry(entry_2)
+# diary.all_diary # => [entry_1, entry_2]
 
 # Gets all todo entries
 diary = DiaryTodoTracker.new
@@ -268,21 +268,21 @@ a more granular level of detail._
 
 # DiaryTodoTracker unit tests
 
-# Returns empty diary list when no diary entries
-diary = DiaryTodoTracker.new
-diary.all_diary # => []
+# # Returns empty diary list when no diary entries
+# diary = DiaryTodoTracker.new
+# diary.all_diary # => []
 
 # Returns empty todo list when no todo entries
-diary = DiaryTodoTracker.new
-diary.all_todo # => []
+# diary = DiaryTodoTracker.new
+# diary.all_todo # => []
 
-# Returns nil for best entry when no diary entries
-diary = DiaryTodoTracker.new
-diary.find_best_entry(1, 1) # => nil
+# # Returns nil for best entry when no diary entries
+# diary = DiaryTodoTracker.new
+# diary.find_best_entry(1, 1) # => nil
 
-# Returns empty phone number list when no diary entries
-diary = DiaryTodoTracker.new
-diary.list_phone_numbers  # => []
+# # Returns empty phone number list when no diary entries
+# diary = DiaryTodoTracker.new
+# diary.list_phone_numbers  # => []
 
 # DiaryEntry unit tests
 
