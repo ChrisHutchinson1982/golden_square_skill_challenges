@@ -14,6 +14,8 @@ class MusicLibrary
   end
   
   def search(keyword) # keyword is a string
-    return @music_library.filter(&:keyword)
+    @music_library.map do |track|
+      track if track.matches?(keyword)
+    end
   end
 end
