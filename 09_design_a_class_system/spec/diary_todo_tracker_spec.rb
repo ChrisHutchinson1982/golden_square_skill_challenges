@@ -14,7 +14,7 @@ RSpec.describe DiaryTodoTracker do
       diary = DiaryTodoTracker.new
       expect { diary.find_best_entry(1, 1) } .to raise_error "Invalid entry due to missing information"
     end
-    xit "returns empty phone number list when no diary entries" do
+    it "returns empty phone number list when no diary entries" do
       diary = DiaryTodoTracker.new
       diary.list_phone_numbers  # => []
     end
