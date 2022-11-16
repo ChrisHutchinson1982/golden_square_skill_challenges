@@ -27,7 +27,7 @@ class DiaryTodoTracker
     max_number_of_words = wpm * mins
     valid_entry = @diary_list.filter {|entry| entry if entry.count_words <= max_number_of_words}
     
-    best_entry = valid_entry.sort_by(&:count_words).last
+    best_entry = valid_entry.max_by(&:count_words)
 
   end
 
